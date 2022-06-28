@@ -318,7 +318,7 @@ class Window:
         self.background(*self.bg_color)
 
         # Major and minor grid and axes
-        self.draw_grid(10, (220,220,220))
+        self.draw_grid(5, (220,220,220))
         self.draw_grid(100, (200,200,200))
         self.draw_axes()
 

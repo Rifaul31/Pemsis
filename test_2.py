@@ -11,6 +11,7 @@ sim.create_roads([
 ])
 
 path1 = [0, 1, 0, 1, 0, 1, 0, 1]
+# path1 = [0, 0, 0, 0, 0, 0, 0, 0]
 path2 = [1, 0, 1, 0, 1, 0, 1, 0]
 
 circuit1 = path1 + path1 + path1 + path1 + path1 + path1 + path1
