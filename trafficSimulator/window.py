@@ -289,22 +289,6 @@ class Window:
             for vehicle in road.vehicles:
                 self.draw_vehicle(vehicle, road)
 
-    def draw_signals(self):
-        for signal in self.sim.traffic_signals:
-            for i in range(len(signal.roads)):
-                color = (0, 255, 0) if signal.current_cycle[i] else (255, 0, 0)
-                for road in signal.roads[i]:
-                    a = 0
-                    position = (
-                        (1-a)*road.end[0] + a*road.start[0],        
-                        (1-a)*road.end[1] + a*road.start[1]
-                    )
-                    self.rotated_box(
-                        position,
-                        (1, 3),
-                        cos=road.angle_cos, sin=road.angle_sin,
-                        color=color)
-
     def draw_status(self):
         text_fps = self.text_font.render(f't={self.sim.t:.5}', False, (0, 0, 0))
         text_frc = self.text_font.render(f'n={self.sim.frame_count}', False, (0, 0, 0))
@@ -324,7 +308,6 @@ class Window:
 
         self.draw_roads()
         self.draw_vehicles()
-        self.draw_signals()
 
         # Draw status info
         self.draw_status()

@@ -1,7 +1,6 @@
 from .road import Road
 from copy import deepcopy
 from .vehicle_generator import VehicleGenerator
-from .traffic_signal import TrafficSignal
 
 class Simulation:
     def __init__(self, config={}):
@@ -34,12 +33,6 @@ class Simulation:
         self.generators.append(gen)
         return gen
 
-    def create_signal(self, roads, config={}):
-        roads = [[self.roads[i] for i in road_group] for road_group in roads]
-        sig = TrafficSignal(roads, config)
-        self.traffic_signals.append(sig)
-        return sig
-
     def update(self):
         # Update every road
         for road in self.roads:
@@ -48,9 +41,6 @@ class Simulation:
         # Add vehicles
         for gen in self.generators:
             gen.update()
-
-        for signal in self.traffic_signals:
-            signal.update(self)
 
         # Check roads for out of bounds vehicle
         for road in self.roads:
