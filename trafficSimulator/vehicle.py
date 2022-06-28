@@ -28,7 +28,7 @@ class Vehicle:
 
         self.x = 0
         self.v = 0
-        self.a = 1
+        self.a = 0
         self.stopped = False
 
     def init_properties(self):
@@ -43,7 +43,7 @@ class Vehicle:
         else:
             brake = random.uniform(0, 1)
             if (brake <= self.p):
-                self.v += -(1.8*self.a*dt)
+                self.v += -(2*self.a*dt)
             else:
                 self.v += self.a*dt
             self.x += self.v*dt + self.a*dt*dt/2
